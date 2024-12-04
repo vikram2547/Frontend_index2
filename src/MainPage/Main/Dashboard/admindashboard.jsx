@@ -58,6 +58,8 @@ const AdminDashboard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataWithOfficeCode = { ...formData, office_code: officeCode };
+    console.log(dataWithOfficeCode,"aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    
     localStorage.setItem("formData", JSON.stringify(dataWithOfficeCode));
     setShowComparison(true);
     setShowForm(false);
@@ -353,7 +355,21 @@ const AdminDashboard = () => {
                         ) {
                           return null;
                         }
+                        if (key === "office_code") {
+                          return (
+                            <div className="form-group" key={key}>
+                              <label>{key}</label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                value={officeCode} 
+                                readOnly
+                              />
+                            </div>
+                          );
+                        }
                         return (
+                          
                           <div className="form-group" key={key}>
                             <label>{key}</label>
                             <input

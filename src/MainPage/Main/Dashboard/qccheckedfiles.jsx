@@ -16,7 +16,7 @@ const QcCheckedFiles = () => {
 
   const token = useSelector((state) => state.login.token);
   const data =
-    useSelector((state) => state.getprocessedfile.getprocessedfile) || [];
+    useSelector((state) => state.getqccheckedfiles.getqccheckedfiles) || [];
 
   const toggleMobileMenu = () => {
     setMenu(!menu);
@@ -103,7 +103,7 @@ const QcCheckedFiles = () => {
                     style={{ overflowX: "auto" }}
                     columns={columns}
                     bordered
-                    dataSource={data}
+                    dataSource={Array.isArray(data) ? data : []}
                   />
                 </div>
               </div>
